@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import HomePage from './components/HomePage';
+import GreetingsPage from './components/GreetingsPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <nav className="navbar">
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
+          to="/"
         >
-          Learn React
-        </a>
-      </header>
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'active-link' : 'default-link')}
+          to="/greetings"
+        >
+          Greetings
+        </NavLink>
+      </nav>
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
+        <Route
+          path="/greetings"
+          element={<GreetingsPage />}
+        />
+      </Routes>
     </div>
   );
 }
