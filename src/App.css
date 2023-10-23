@@ -23,7 +23,7 @@
 }
 
 .navbar a:hover {
-  scale: 110%;
+  transform: scale(1.1);
 }
 
 .active-link {
@@ -46,6 +46,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
